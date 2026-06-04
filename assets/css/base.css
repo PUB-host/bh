@@ -1,0 +1,104 @@
+/* ============================================================
+   Barnahus refaktor — BASE
+   Reset, alaptipográfia, hozzáférhetőség, alap-elemstílusok.
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--bh-font-sans);
+  font-size: var(--bh-fs-300);
+  line-height: var(--bh-lh-body);
+  color: var(--bh-ink);
+  background: var(--bh-surface);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Címsorok */
+h1, h2, h3, h4 {
+  margin: 0 0 var(--bh-space-sm);
+  line-height: var(--bh-lh-tight);
+  font-weight: var(--bh-fw-black);
+  color: var(--bh-primary-dark);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+h1 { font-size: var(--bh-fs-800); }
+h2 { font-size: var(--bh-fs-700); }
+h3 { font-size: var(--bh-fs-600); font-weight: var(--bh-fw-bold); }
+h4 { font-size: var(--bh-fs-500); font-weight: var(--bh-fw-bold); }
+
+p { margin: 0 0 var(--bh-space-sm); }
+p, li { max-width: var(--bh-measure); }
+
+a { color: var(--bh-primary-700); text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+a:hover { color: var(--bh-primary-dark); }
+
+strong, b { font-weight: var(--bh-fw-bold); }
+
+img, svg, video { max-width: 100%; height: auto; display: block; }
+
+ul, ol { margin: 0 0 var(--bh-space-sm); padding-left: 1.25em; }
+li { margin-bottom: var(--bh-space-2xs); }
+
+blockquote { margin: 0; }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--bh-border);
+  margin: var(--bh-space-lg) 0;
+}
+
+/* Fókusz — billentyűzetes navigáció */
+:focus-visible {
+  outline: var(--bh-focus);
+  outline-offset: 2px;
+  border-radius: var(--bh-radius-sm);
+}
+
+/* Ugró-link a tartalomhoz */
+.bh-skip {
+  position: absolute;
+  left: var(--bh-space-sm);
+  top: -100%;
+  z-index: 1000;
+  background: var(--bh-primary-dark);
+  color: #fff;
+  padding: var(--bh-space-2xs) var(--bh-space-sm);
+  border-radius: var(--bh-radius-sm);
+  transition: top var(--bh-dur) var(--bh-ease);
+}
+.bh-skip:focus { top: var(--bh-space-sm); color: #fff; }
+
+/* Csak képernyőolvasónak */
+.bh-visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+/* Selection */
+::selection { background: var(--bh-accent-soft); color: var(--bh-primary-dark); }
+
+/* Nyomtatás — alap */
+@media print {
+  .bh-header, .bh-footer, .bh-cta, .bh-quickexit { display: none !important; }
+  body { color: #000; background: #fff; }
+  a::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #555; }
+  .bh-section { padding: 1rem 0; }
+}

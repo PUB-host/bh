@@ -1,0 +1,109 @@
+/* ============================================================
+   Barnahus refaktor — TOKENS
+   Designtokenek (CSS-változók). Ez az egyetlen hely, ahol a
+   szín-, tipográfia-, tér-, sugár- és árnyékértékek születnek.
+   Divi 5: ezek 1:1-ben átvihetők a Divi globális változóira / preset-jeire.
+   A palettát a logóból és az infografikákból mintavételeztük (lila vezérszín).
+   ============================================================ */
+
+:root {
+  /* --- Szín: lila vezérszín --- */
+  --bh-primary:        #7a3b9b;  /* fő lila (ház-logó, keretek) */
+  --bh-primary-dark:   #4d2463;  /* mélylila (footer, erős címsor) */
+  --bh-primary-700:    #5f2d7d;  /* hover/aktív */
+  --bh-primary-soft:   #ece4f3;  /* világos lila wash háttér */
+  --bh-primary-200:    #d7c4e6;  /* halvány lila (give-away kis ház) */
+
+  /* --- Szín: okker/sárga kiegészítő --- */
+  --bh-accent:         #e7b008;  /* okker/mustár (keret, pötty, kiemelés) */
+  --bh-accent-dark:    #c2900a;
+  --bh-accent-soft:    #faf0cf;  /* halvány sárga háttér */
+
+  /* --- Semleges / szöveg --- */
+  --bh-ink:            #2b2330;  /* fő szövegszín (lilába hajló sötét) */
+  --bh-muted:          #5d5566;  /* másodlagos szöveg */
+  --bh-surface:        #ffffff;  /* alap felület */
+  --bh-cream:          #fbf8f3;  /* meleg krém szekció-háttér */
+  --bh-border:         #e6dfec;  /* finom keret */
+  --bh-border-strong:  #cdbedd;
+
+  /* --- Funkcionális, visszafogott --- */
+  --bh-info:           var(--bh-primary);
+  --bh-important:      #b23a48;  /* fontos/figyelmeztető — visszafogott, meleg piros */
+  --bh-important-soft: #f6e7e9;
+
+  /* --- Tipográfia ---
+     Önkiszolgáló rendszerfont-stack (nincs CDN, nincs külső font).
+     Élesben opcionálisan Open Sans + Fauna One self-hosted — lásd 04_designrendszer.md. */
+  --bh-font-sans:  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --bh-font-serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
+
+  /* Folyékony (clamp) betűskála — mobilbarát, nem törik el */
+  --bh-fs-100: 0.8125rem;                          /* 13px – apró intézményi info */
+  --bh-fs-200: 0.9375rem;                          /* 15px – kis szöveg */
+  --bh-fs-300: 1rem;                               /* 16px – törzs */
+  --bh-fs-400: clamp(1.0625rem, 0.6vw + 0.95rem, 1.1875rem); /* lead-kicsi */
+  --bh-fs-500: clamp(1.25rem, 1vw + 1rem, 1.5rem);  /* lead / alcím */
+  --bh-fs-600: clamp(1.5rem, 1.6vw + 1.1rem, 2rem); /* h3 */
+  --bh-fs-700: clamp(1.9rem, 2.6vw + 1.1rem, 2.75rem); /* h2 */
+  --bh-fs-800: clamp(2.4rem, 4vw + 1rem, 3.75rem);  /* h1 / hero */
+
+  --bh-lh-tight: 1.15;
+  --bh-lh-snug:  1.3;
+  --bh-lh-body:  1.65;
+
+  --bh-fw-normal: 400;
+  --bh-fw-medium: 600;
+  --bh-fw-bold:   700;
+  --bh-fw-black:  800;
+
+  /* Mérthossz (olvashatóság) */
+  --bh-measure: 68ch;
+
+  /* --- Tér (8 px- alapú ritmus) --- */
+  --bh-space-3xs: 0.25rem;
+  --bh-space-2xs: 0.5rem;
+  --bh-space-xs:  0.75rem;
+  --bh-space-sm:  1rem;
+  --bh-space-md:  1.5rem;
+  --bh-space-lg:  2rem;
+  --bh-space-xl:  3rem;
+  --bh-space-2xl: 4.5rem;
+  --bh-space-3xl: 6.5rem;
+
+  /* Szekció függőleges ritmusa (clamp) */
+  --bh-section-y: clamp(3rem, 6vw, 6rem);
+
+  /* --- Konténer --- */
+  --bh-container:      72rem;   /* 1152px – fő tartalomsáv */
+  --bh-container-wide: 80rem;
+  --bh-container-text: 44rem;   /* olvasósáv (cikk) */
+  --bh-gutter:         clamp(1rem, 4vw, 2rem);
+
+  /* --- Sugár --- */
+  --bh-radius-sm: 6px;
+  --bh-radius:    12px;
+  --bh-radius-lg: 20px;
+  --bh-radius-pill: 999px;
+
+  /* --- Árnyék (lágy, nem „SaaS-os") --- */
+  --bh-shadow-sm: 0 1px 2px rgba(43, 35, 48, 0.06), 0 2px 6px rgba(43, 35, 48, 0.05);
+  --bh-shadow:    0 8px 24px rgba(77, 36, 99, 0.10);
+  --bh-shadow-lg: 0 18px 48px rgba(77, 36, 99, 0.16);
+
+  /* --- Keret-vonalvastagság (papírlap-motívum) --- */
+  --bh-frame: 3px;
+
+  /* --- Mozgás --- */
+  --bh-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --bh-dur:  0.35s;
+
+  --bh-focus: 3px solid var(--bh-accent-dark);
+}
+
+/* Sötét felületeken (footer, mélylila szekció) felülírt szövegszín */
+.bh-on-dark {
+  --bh-ink: #ffffff;
+  --bh-muted: #e6d9f0;
+  --bh-border: rgba(255, 255, 255, 0.18);
+}

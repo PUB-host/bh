@@ -1,0 +1,65 @@
+/* ============================================================
+   Barnahus refaktor — LAYOUT
+   Szekció, konténer, rács-segédek. Divi-megfelelők:
+   .bh-section ≈ Divi Section, .bh-container ≈ Row, .bh-grid ≈ Row oszlopai.
+   ============================================================ */
+
+/* Szekció = függőleges ritmus + opcionális háttér */
+.bh-section { padding-block: var(--bh-section-y); }
+.bh-section--tight { padding-block: clamp(2rem, 4vw, 3.5rem); }
+.bh-section--cream   { background: var(--bh-cream); }
+.bh-section--soft    { background: var(--bh-primary-soft); }
+.bh-section--accent  { background: var(--bh-accent-soft); }
+.bh-section--dark    { background: var(--bh-primary-dark); color: #fff; }
+
+/* Konténer = középre zárt tartalomsáv */
+.bh-container {
+  width: 100%;
+  max-width: var(--bh-container);
+  margin-inline: auto;
+  padding-inline: var(--bh-gutter);
+}
+.bh-container--wide { max-width: var(--bh-container-wide); }
+.bh-container--text { max-width: var(--bh-container-text); }
+
+/* Általános rács (auto-fit, reszponzív) */
+.bh-grid {
+  display: grid;
+  gap: var(--bh-space-lg);
+}
+.bh-grid--2 { grid-template-columns: repeat(2, 1fr); }
+.bh-grid--3 { grid-template-columns: repeat(3, 1fr); }
+.bh-grid--auto {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+}
+
+/* Két hasáb: szöveg + média (aszimmetrikus a hero/feature-höz) */
+.bh-split {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, var(--bh-space-2xl));
+  align-items: center;
+}
+@media (min-width: 60rem) {
+  .bh-split { grid-template-columns: 1.05fr 0.95fr; }
+  .bh-split--media-left > :first-child { order: 2; }
+  .bh-split--wide-text { grid-template-columns: 1.25fr 0.75fr; }
+}
+
+/* Stack (függőleges térköz) segéd */
+.bh-stack > * + * { margin-top: var(--bh-space-sm); }
+.bh-stack-lg > * + * { margin-top: var(--bh-space-lg); }
+
+/* Reszponzív összeomlás */
+@media (max-width: 52rem) {
+  .bh-grid--2, .bh-grid--3 { grid-template-columns: 1fr; }
+}
+@media (min-width: 40rem) and (max-width: 60rem) {
+  .bh-grid--3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Segéd-igazítás */
+.bh-center { text-align: center; }
+.bh-center .bh-prose,
+.bh-center p { margin-inline: auto; }
+.bh-measure { max-width: var(--bh-measure); }
+.bh-measure--center { max-width: var(--bh-measure); margin-inline: auto; }

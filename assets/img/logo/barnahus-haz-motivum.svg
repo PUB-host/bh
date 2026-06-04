@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Barnahus ház jelkép">
+  <title>Barnahus ház jelkép</title>
+  <!-- Stilizált ház-körvonal, benne három, egymást átkaroló alak.
+       Egyetlen színt használ (currentColor), így CSS-ből bármilyen árnyalatra állítható. -->
+  <g fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Ház: ötszög, felül enyhe nyeregtetővel -->
+    <path d="M16 50 L60 14 L104 50 L104 106 L16 106 Z"/>
+    <!-- Három alak: kör fejek -->
+    <circle cx="40" cy="62" r="7" fill="currentColor" stroke="none"/>
+    <circle cx="60" cy="58" r="7.5" fill="currentColor" stroke="none"/>
+    <circle cx="80" cy="62" r="7" fill="currentColor" stroke="none"/>
+    <!-- Karok / testek, melyek átkarolják egymást -->
+    <path d="M40 71 C34 80 30 86 26 96"/>
+    <path d="M40 71 C48 80 52 84 60 86"/>
+    <path d="M60 67 C54 78 52 84 46 96"/>
+    <path d="M60 67 C66 78 68 84 74 96"/>
+    <path d="M80 71 C86 80 90 86 94 96"/>
+    <path d="M80 71 C72 80 68 84 60 86"/>
+  </g>
+</svg>

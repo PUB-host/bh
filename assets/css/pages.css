@@ -1,0 +1,51 @@
+/* ============================================================
+   Barnahus refaktor — PAGES
+   Csak oldalspecifikus finomhangolás. A komponensek a components.css-ben
+   élnek; itt csak ritka kivételek. Divi 5: ezek jellemzően a konkrét
+   oldal "Custom CSS" mezőjébe kerülnének.
+   ============================================================ */
+
+/* --- Főoldal: hero statisztika-sor --- */
+.bh-stats { display: flex; flex-wrap: wrap; gap: var(--bh-space-lg); margin-top: var(--bh-space-lg); }
+.bh-stat { min-width: 7rem; }
+.bh-stat__num { font-size: var(--bh-fs-700); font-weight: var(--bh-fw-black); color: var(--bh-primary); line-height: 1; }
+.bh-stat__label { font-size: var(--bh-fs-200); color: var(--bh-muted); }
+
+/* --- Hub-kártyák sorszáma (Ez a Barnahus) --- */
+.bh-hubcard__index {
+  font-family: var(--bh-font-serif); font-size: var(--bh-fs-700);
+  color: var(--bh-primary-200); line-height: 1; margin-bottom: var(--bh-space-2xs);
+}
+
+/* --- Értékek / supporters lista (rólunk) --- */
+.bh-values-en {
+  font-size: var(--bh-fs-200); letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--bh-primary); font-weight: var(--bh-fw-bold); margin-top: var(--bh-space-md);
+}
+
+/* --- Cikkben "kapcsolódó / forrás" lábrész --- */
+.bh-article-foot {
+  margin-top: var(--bh-space-2xl); padding-top: var(--bh-space-lg);
+  border-top: 1px solid var(--bh-border);
+}
+
+/* --- Ellenőrizendő-jelölés (emberi review) --- */
+.bh-review-flag {
+  display: inline-block; font-size: var(--bh-fs-100); font-weight: var(--bh-fw-bold);
+  background: var(--bh-important-soft); color: var(--bh-important);
+  border: 1px dashed #d59aa2; border-radius: var(--bh-radius-sm);
+  padding: 0.05rem 0.45rem; vertical-align: middle;
+}
+
+/* --- "Ki kérhet vizsgálatot" három kör (szolgáltatások jellegű blokk) --- */
+.bh-orgs { display: grid; gap: var(--bh-space-md); grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); text-align: center; }
+.bh-orgs__item { padding: var(--bh-space-lg) var(--bh-space-md); }
+.bh-orgs__circle {
+  width: 6rem; height: 6rem; margin: 0 auto var(--bh-space-sm); border-radius: 50%;
+  display: grid; place-items: center; color: var(--bh-primary);
+  background:
+    repeating-linear-gradient(-45deg, var(--bh-primary-200) 0 6px, transparent 6px 12px);
+  border: 2px solid var(--bh-primary-200);
+}
+.bh-orgs__circle svg { width: 2.4rem; height: 2.4rem; }
+.bh-orgs__item strong { color: var(--bh-primary-dark); }
